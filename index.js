@@ -41,17 +41,17 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         else if (event.type == "message" && event.message.type == "location") {
 
             //jsonの取得
-            var https = require('https');
-            var URL = "https://map.yahooapis.jp/search/local/V1/localSearch?appid=dj00aiZpPThaVnFRclBQUDE5YiZzPWNvbnN1bWVyc2VjcmV0Jng9Nzk-&lat=" + event.message.latitude + "&lon=" + event.message.longitude + "&dist=1" + "&query=%E3%83%A9%E3%83%96%E3%83%9B%E3%83%86%E3%83%AB";
+            var request = require('request');
 
-            var data = [];
-            https.get(URL, function (res) {
-                res.on('data', function(chunk) {
-                    data.push(chunk);
-                }).on('end', function() {
-                    console.log(data);
-                });
-            });
+            var options = {
+                url: "https://map.yahooapis.jp/search/local/V1/localSearch?appid=dj00aiZpPThaVnFRclBQUDE5YiZzPWNvbnN1bWVyc2VjcmV0Jng9Nzk-&lat=" + event.message.latitude + "&lon=" + event.message.longitude + "&dist=1" + "&query=%E3%83%A9%E3%83%96%E3%83%9B%E3%83%86%E3%83%AB",
+                method: 'GET'
+            }
+
+            request(options, function (error, response, body) {
+                console.log(body);             
+            })
+            
 
             //返信内容
             //  events_processed.push(bot.replyMessage(event.replyToken, {
