@@ -44,23 +44,22 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             var https = require('https');
             var URL = "https://map.yahooapis.jp/search/local/V1/localSearch?appid=dj00aiZpPThaVnFRclBQUDE5YiZzPWNvbnN1bWVyc2VjcmV0Jng9Nzk-&lat=" + event.message.latitude + "&lon=" + event.message.longitude + "&dist=1" + "&query=%E3%83%A9%E3%83%96%E3%83%9B%E3%83%86%E3%83%AB";
 
+            var data = [];
             https.get(URL, function (res) {
-                var data = [];
                 res.on('data', function(chunk) {
                     data.push(chunk);
                 }).on('end', function() {
                     var events   = Buffer.concat(data);
-                    console.log(data);
-                    console.log(events);
-                //返信内容
-                events_processed.push(bot.replyMessage(event.replyToken, {
-                    type: "text",
-                    text: data
-                }));
-                
+                    var r = JSON.parse(events);
+                    console.log(r);
                 });
             });
 
+            //返信内容
+            //  events_processed.push(bot.replyMessage(event.replyToken, {
+            //     type: "text",
+            //     text: data
+            // }));
         }
     });
 
