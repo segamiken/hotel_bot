@@ -54,7 +54,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 //返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: "text",
-                    text: reply_text
+                    text: data
                 }));
                 
                 });
