@@ -47,6 +47,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             const req = https.request(URL, (res) => {
                 res.on('data', (chunk) => {
                     console.log(`BODY: ${chunk}`);
+                    var text = chunk.toString();
                 });
                 res.on('end', () => {
                     console.log('No more data in response.');
@@ -62,7 +63,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             //返信内容
             events_processed.push(bot.replyMessage(event.replyToken, {
                 type: "text",
-                text: chunk.name
+                text: text
             }));
         }
     });
