@@ -49,9 +49,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 res.on('data', function(chunk) {
                     data.push(chunk);
                 }).on('end', function() {
-                    var events   = Buffer.concat(data);
                     console.log(data);
-                    console.log(events);
                 });
             });
 
