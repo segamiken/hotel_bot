@@ -51,8 +51,10 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
             request(options, function (error, response, body) {
                 console.log(body);
-                var Hotel_name = [];
-                body.forEach(element => console.log(element.Name));             
+                var obj = JSON.parse(body);
+                Object.keys(obj).forEach(function(key) {
+                    console.log(obj[key]);
+                })           
             })
             
 
