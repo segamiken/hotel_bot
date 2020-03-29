@@ -46,22 +46,19 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
             https.get(URL, function (res) {
                 res.on('data', function(chunk) {
-                  data.push(chunk);
+                    data.push(chunk);
                 }).on('end', function() {
-               
-                  var events   = Buffer.concat(data);
-                  var reply_text = JSON.parse(events);
-               
-                  console.log(r);
-               
+                    var events   = Buffer.concat(data);
+                    var reply_text = JSON.parse(events);
+                //返信内容
+                events_processed.push(bot.replyMessage(event.replyToken, {
+                    type: "text",
+                    text: reply_text
+                }));
+                
                 });
             });
 
-            //返信内容
-            events_processed.push(bot.replyMessage(event.replyToken, {
-                type: "text",
-                text: reply_text
-            }));
         }
     });
 
