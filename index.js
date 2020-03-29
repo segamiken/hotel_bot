@@ -49,20 +49,19 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 json: true
             }
 
-            request(options, function (error, response, body) {
-                console.log(body);
-                var obj = JSON.parse(body);
-                Object.keys(obj).forEach(function(key) {
-                    console.log(obj[key]);
-                })           
+            request(options, function (error, response, body) { 
+                var reply_message=[];
+                body.forEach {
+                    reply_message.push(body['Name']);
+                }      
             })
             
 
-            //返信内容
-            //  events_processed.push(bot.replyMessage(event.replyToken, {
-            //     type: "text",
-            //     text: data
-            // }));
+            // 返信内容
+             events_processed.push(bot.replyMessage(event.replyToken, {
+                type: "text",
+                text: reply_message
+            }));
         }
     });
 
