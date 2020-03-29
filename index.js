@@ -39,11 +39,22 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         }
         //現在地が送られてきた場合
         else if (event.type == "message" && event.message.type == "location") {
-            var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB1xac5VrFPOAPvUTV14Th1nCYzgWNZk44" + "&location=" + `${event.message.latitude},${event.message.longitude}` + "&radius=1000" + "&keyword=ラブホテル";
 
+            var URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB1xac5VrFPOAPvUTV14Th1nCYzgWNZk44" + "&location=" + `${event.message.latitude},${event.message.longitude}` + "&radius=1000" + "&keyword=ラブホテル";
+            const request = require('request');
+
+            request.get({
+                uri: URL,
+                headers: {'Content-type': 'application/json'},
+                json: true
+            }, function(err, req, data){
+                var DATA = data
+            });
+
+            //返信内容
             events_processed.push(bot.replyMessage(event.replyToken, {
                 type: "text",
-                text: url
+                text: DATA
             }));
         }
     });
