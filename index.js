@@ -42,6 +42,23 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
             var URL = "https://map.yahooapis.jp/search/local/V1/localSearch?appid=dj00aiZpPThaVnFRclBQUDE5YiZzPWNvbnN1bWVyc2VjcmV0Jng9Nzk-&lat=" + event.message.latitude + "&lon=" + event.message.longitude + "&dist=1" + "&query=%E3%83%A9%E3%83%96%E3%83%9B%E3%83%86%E3%83%AB";
 
+            //jsonの取得
+            const https = require('https');
+            const req = https.request(URL, (res) => {
+                res.on('data', (chunk) => {
+                    console.log(`BODY: ${chunk}`);
+                });
+                res.on('end', () => {
+                    console.log('No more data in response.');
+                });
+            })
+            
+            req.on('error', (e) => {
+            console.error(`problem with request: ${e.message}`);
+            });
+
+            req.end();
+
             //返信内容
             events_processed.push(bot.replyMessage(event.replyToken, {
                 type: "text",
