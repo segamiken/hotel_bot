@@ -40,10 +40,10 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 }));
             // }
         }
-        else {
+        else if (event.type == "message" && event.message.type == "location") {
             events_processed.push(bot.replyMessage(event.replyToken, {
                 type: "text",
-                text: event.message.type
+                text: event.message
             }));
         }
     });
