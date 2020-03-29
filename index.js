@@ -50,11 +50,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     data.push(chunk);
                 }).on('end', function() {
                     var events   = Buffer.concat(data);
-                    var reply_text = JSON.parse(events);
-                    
                     console.log(data);
                     console.log(events);
-                    console.log(reply_text);
                 //返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: "text",
