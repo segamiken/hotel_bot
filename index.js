@@ -51,9 +51,10 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
             request(options, function (error, response, body) { 
                 var reply_message=[];
-                body.forEach {
+
+                body.forEach(function() {
                     reply_message.push(body['Name']);
-                }      
+                });
             })
             
 
