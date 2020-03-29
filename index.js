@@ -39,34 +39,12 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         }
         //現在地が送られてきた場合
         else if (event.type == "message" && event.message.type == "location") {
+            var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB1xac5VrFPOAPvUTV14Th1nCYzgWNZk44" + "&location=" + `${event.message.latitude},${event.message.longitude}` + "&radius=1000" + "&keyword=ラブホテル";
+
             events_processed.push(bot.replyMessage(event.replyToken, {
                 type: "text",
-                text: `住所が${event.message.address}, そこの緯度は${event.message.latitude}, 経度は${event.message.longitude}です。`
+                text: url
             }));
-
-            var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyB1xac5VrFPOAPvUTV14Th1nCYzgWNZk44" + "&location=" + `${event.message.latitude},${event.message.longitude}` + "&radius=1000" + "&keyword=ラブホテル";
-            const https = require('https');
-            // 近くのホテルを取得
-            https.get(url, function (res) {
-                var body = '';
-                res.setEncoding('utf8');
-                res.on('data', function (chunk) {
-                    body += chunk;
-                });
-                res.on('data', function (chunk) {
-                    // body の値を json としてパースしている
-                    res = JSON.parse(body);
-                })
-                events_processed.push(bot.replyMessage(event.replyToken, {
-                    type: "json",
-                    text: res
-                }));
-            }).on('error', function (e) {
-                events_processed.push(bot.replyMessage(event.replyToken, {
-                    type: "text",
-                    text: e.message
-                }));
-            });
         }
     });
 
