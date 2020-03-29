@@ -46,6 +46,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             const req = https.request(URL, (res) => {
                 res.on('data', (chunk) => {
                     var text = chunk;
+                    console.log(`BODY: ${chunk}`);
                 });
                 res.on('end', () => {
                     console.log('No more data in response.');
@@ -53,7 +54,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             })
 
             req.on('error', (e) => {
-                    var text = "エラーです。"
+                    var Data = "エラー"
             });
 
             req.end();
@@ -61,7 +62,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             //返信内容
             events_processed.push(bot.replyMessage(event.replyToken, {
                 type: "text",
-                text: text
+                text: Data
             }));
         }
     });
