@@ -43,9 +43,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         else if (event.type == "message" && event.message.type == "location") {
             events_processed.push(bot.replyMessage(event.replyToken, {
                 type: "text",
-                text: event.message.address,
-                text: event.message.latitude,
-                text: event.message.longitude
+                text: `住所が${event.message.address}, そこの緯度は${event.message.latitude}, 経度は${event.message.longitude}です。`
             }));
         }
     });
