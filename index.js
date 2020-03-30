@@ -57,7 +57,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 var hotel_name = body.Feature[0].Name;
                 var hotel_address = body.Feature[0].Property.Address;
                 var hotel_image = body.Feature[0].LeadImage;
-                // var hotel_url = body.Feature[0].Coupon.SmartPhoneUrl;
+                
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: 'flex',
@@ -67,13 +67,13 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     "type": "bubble",
                     "hero": {
                       "type": "image",
-                      "url": hotel_image,
+                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
                       "size": "full",
                       "aspectRatio": "20:13",
                       "aspectMode": "cover",
                       "action": {
                         "type": "uri",
-                        "uri": "https://www.google.com"
+                        "uri": "http://linecorp.com/"
                     }
                 },
                 "body": {
@@ -128,7 +128,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                               },
                               {
                                 "type": "text",
-                                "text": hotel_address,
+                                "text": "ホテルの住所が入ります。",
                                 "wrap": true,
                                 "color": "#666666",
                                 "size": "sm",
