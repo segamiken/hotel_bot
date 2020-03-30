@@ -57,7 +57,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 var hotel_name = body.Feature[0].Name;
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
-                    {
                         "type": "carousel",
                         "contents": [
                           {
@@ -318,7 +317,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                             }
                           }
                         ]
-                      }
                 }));
             })
 
