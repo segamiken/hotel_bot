@@ -2,7 +2,7 @@
 // モジュールのインポート
 const server = require("express")();
 const line = require("@line/bot-sdk"); // Messaging APIのSDKをインポート
-require('dotenv').config() //環境変数
+require('dotenv').config(); //環境変数
 
 // -----------------------------------------------------------------------------
 // パラメータ設定
