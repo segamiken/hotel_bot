@@ -61,6 +61,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 var hotel_name = ["情報なし", "情報なし", "情報なし", "情報なし", "情報なし"];
                 var hotel_address = ["情報なし", "情報なし", "情報なし", "情報なし", "情報なし"];
                 var hotel_tell = ["情報なし", "情報なし", "情報なし", "情報なし", "情報なし"];
+                var hotel_map = ["https://www.google.co.jp/maps", "https://www.google.co.jp/maps", "https://www.google.co.jp/maps", "https://www.google.co.jp/maps", "https://www.google.co.jp/maps"]
 
                 //ホテルの名前や住所を配列にセットする
                 //情報を5件以上取得できた場合
@@ -69,10 +70,14 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                         name = body.Feature[i].Name
                         address = body.Feature[i].Property.Address
                         tell = body.Feature[i].Property.Tel1
+
+                        var uri = "https://www.google.co.jp/maps?q=" + name;
+                        var map_uri = encodeURI(uri);
     
                         hotel_name.splice(i, 1, name);
                         hotel_address.splice(i, 1, address);
                         hotel_tell.splice(i, 1, tell);
+                        hotel_map.splice(i, 1, map_uri);
                     }
                 } else {
                     for( var i=0; i<body.ResultInfo.Count; i++) {
@@ -168,7 +173,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "type": "button",
                                   "action": {
                                     "type": "uri",
-                                    "uri": "https://www.google.co.jp/maps?q=" + hotel_name[0],
+                                    "uri": hotel_map[0],
                                     "label": "MAP"
                                   },
                                   "style": "link",
