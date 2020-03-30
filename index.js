@@ -131,7 +131,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_address[0],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -153,7 +153,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_tell[0],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -174,17 +174,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": hotel_map[0],
-                                    "label": "MAP"
-                                  },
-                                  "style": "link",
-                                  "height": "sm"
-                                },
-                                {
-                                  "type": "button",
-                                  "action": {
-                                    "type": "uri",
-                                    "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAPを開く"
                                   },
                                   "style": "link",
                                   "height": "sm"
@@ -225,7 +215,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_address[1],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -247,7 +237,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_tell[1],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -268,17 +258,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": hotel_map[1],
-                                    "label": "MAP"
-                                  },
-                                  "style": "link",
-                                  "height": "sm"
-                                },
-                                {
-                                  "type": "button",
-                                  "action": {
-                                    "type": "uri",
-                                    "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAPを開く"
                                   },
                                   "style": "link",
                                   "height": "sm"
@@ -319,7 +299,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_address[2],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -341,7 +321,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_tell[2],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -362,17 +342,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": hotel_map[2],
-                                    "label": "MAP"
-                                  },
-                                  "style": "link",
-                                  "height": "sm"
-                                },
-                                {
-                                  "type": "button",
-                                  "action": {
-                                    "type": "uri",
-                                    "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAPを開く"
                                   },
                                   "style": "link",
                                   "height": "sm"
@@ -413,7 +383,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_address[3],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -435,7 +405,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_tell[3],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -456,17 +426,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": hotel_map[3],
-                                    "label": "MAP"
-                                  },
-                                  "style": "link",
-                                  "height": "sm"
-                                },
-                                {
-                                  "type": "button",
-                                  "action": {
-                                    "type": "uri",
-                                    "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAPを開く"
                                   },
                                   "style": "link",
                                   "height": "sm"
@@ -507,7 +467,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_address[4],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -529,7 +489,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                           "text": hotel_tell[4],
                                           "wrap": true,
                                           "color": "#666666",
-                                          "size": "sm",
+                                          "size": "md",
                                           "flex": 5
                                         }
                                       ],
@@ -550,17 +510,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": hotel_map[4],
-                                    "label": "MAP"
-                                  },
-                                  "style": "link",
-                                  "height": "sm"
-                                },
-                                {
-                                  "type": "button",
-                                  "action": {
-                                    "type": "uri",
-                                    "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAPを開く"
                                   },
                                   "style": "link",
                                   "height": "sm"
