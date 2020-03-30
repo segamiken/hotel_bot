@@ -128,7 +128,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                               },
                               {
                                 "type": "text",
-                                "text": "ホテルの住所が入ります。",
+                                "text": hotel_address,
                                 "wrap": true,
                                 "color": "#666666",
                                 "size": "sm",
