@@ -50,17 +50,16 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             }
 
             request(options, function (error, response, body) { 
-                var hotel_obj = JSON.parse(body);
-                console.log(hotel_obj);
-                console.log(hotel_obj.count);
+                console.log(body.count);
+                var hotel_count = body.count;
             })
             
 
             // 返信内容
-            //  events_processed.push(bot.replyMessage(event.replyToken, {
-            //     type: "text",
-            //     text: reply_message
-            // }));
+             events_processed.push(bot.replyMessage(event.replyToken, {
+                type: "text",
+                text: `${hotel_count}件のホテルが見つかりました。`
+            }));
         }
     });
 
