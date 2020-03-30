@@ -64,7 +64,17 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     altText: '近くのラブホテル',
                     contents:
                 {
-                    "type": "carousel",
+                    "type": "bubble",
+                    "hero": {
+                      "type": "image",
+                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                      "size": "full",
+                      "aspectRatio": "20:13",
+                      "aspectMode": "cover",
+                      "action": {
+                        "type": "uri",
+                        "uri": "http://linecorp.com/"
+                    }
                 },
                 "body": {
                     "type": "box",
@@ -150,6 +160,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     ],
                     "flex": 0
                   }
+                }
 
                 }));
             })
