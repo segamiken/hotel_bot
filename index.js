@@ -168,7 +168,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "type": "button",
                                   "action": {
                                     "type": "uri",
-                                    "uri": "http://linecorp.com/",
+                                    "uri": `https://www.google.co.jp/maps?q=${hotel_name[0]}`,
                                     "label": "MAP"
                                   },
                                   "style": "link",
