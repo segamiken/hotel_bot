@@ -56,113 +56,127 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 console.log(body.Feature[0].Name);
                 var hotel_name = body.Feature[0].Name;
                 // 返信内容
-                events_processed.push(bot.replyMessage(event.replyToken, {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "Brown Cafe",
-                          "weight": "bold",
-                          "size": "xl"
+                bot.replyMessage(event.replyToken, {
+                        "type": "bubble",
+                        "hero": {
+                          "type": "image",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                          "size": "full",
+                          "aspectRatio": "20:13",
+                          "aspectMode": "cover",
+                          "action": {
+                            "type": "uri",
+                            "uri": "http://linecorp.com/"
+                          }
                         },
-                        {
+                        "body": {
                           "type": "box",
-                          "layout": "baseline",
-                          "margin": "md",
+                          "layout": "vertical",
                           "contents": [
                             {
-                              "type": "icon",
-                              "size": "sm",
-                              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                            },
-                            {
-                              "type": "icon",
-                              "size": "sm",
-                              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                            },
-                            {
-                              "type": "icon",
-                              "size": "sm",
-                              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                            },
-                            {
-                              "type": "icon",
-                              "size": "sm",
-                              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                            },
-                            {
-                              "type": "icon",
-                              "size": "sm",
-                              "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
-                            },
-                            {
                               "type": "text",
-                              "text": "4.0",
-                              "size": "sm",
-                              "color": "#999999",
+                              "text": "ホテル名が入ります",
+                              "weight": "bold",
+                              "size": "xl"
+                            },
+                            {
+                              "type": "box",
+                              "layout": "baseline",
                               "margin": "md",
-                              "flex": 0
+                              "contents": [
+                                {
+                                  "type": "text",
+                                  "text": "評価",
+                                  "color": "#aaaaaa",
+                                  "size": "sm",
+                                  "flex": 1
+                                },
+                                {
+                                  "type": "text",
+                                  "text": "3.0",
+                                  "wrap": true,
+                                  "color": "#666666",
+                                  "size": "sm",
+                                  "flex": 5
+                                }
+                              ]
+                            },
+                            {
+                              "type": "box",
+                              "layout": "vertical",
+                              "margin": "lg",
+                              "spacing": "sm",
+                              "contents": [
+                                {
+                                  "type": "box",
+                                  "layout": "baseline",
+                                  "spacing": "sm",
+                                  "contents": [
+                                    {
+                                      "type": "text",
+                                      "text": "Place",
+                                      "color": "#aaaaaa",
+                                      "size": "sm",
+                                      "flex": 1
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": "ホテルの住所が入ります。",
+                                      "wrap": true,
+                                      "color": "#666666",
+                                      "size": "sm",
+                                      "flex": 5
+                                    }
+                                  ]
+                                }
+                              ]
                             }
                           ]
                         },
-                        {
+                        "footer": {
                           "type": "box",
                           "layout": "vertical",
-                          "margin": "lg",
                           "spacing": "sm",
                           "contents": [
                             {
-                              "type": "box",
-                              "layout": "baseline",
-                              "spacing": "sm",
-                              "contents": [
-                                {
-                                  "type": "text",
-                                  "text": "Place",
-                                  "color": "#aaaaaa",
-                                  "size": "sm",
-                                  "flex": 1
-                                },
-                                {
-                                  "type": "text",
-                                  "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
-                                  "wrap": true,
-                                  "color": "#666666",
-                                  "size": "sm",
-                                  "flex": 5
-                                }
-                              ]
+                              "type": "button",
+                              "style": "link",
+                              "height": "sm",
+                              "action": {
+                                "type": "uri",
+                                "label": "CALL",
+                                "uri": "https://linecorp.com"
+                              }
                             },
                             {
-                              "type": "box",
-                              "layout": "baseline",
-                              "spacing": "sm",
-                              "contents": [
-                                {
-                                  "type": "text",
-                                  "text": "Time",
-                                  "color": "#aaaaaa",
-                                  "size": "sm",
-                                  "flex": 1
-                                },
-                                {
-                                  "type": "text",
-                                  "text": "10:00 - 23:00",
-                                  "wrap": true,
-                                  "color": "#666666",
-                                  "size": "sm",
-                                  "flex": 5
-                                }
-                              ]
+                              "type": "button",
+                              "style": "link",
+                              "height": "sm",
+                              "action": {
+                                "type": "uri",
+                                "label": "WEBSITE",
+                                "uri": "https://www.google.com"
+                              }
+                            },
+                            {
+                              "type": "button",
+                              "style": "link",
+                              "height": "sm",
+                              "action": {
+                                "type": "uri",
+                                "label": "Map",
+                                "uri": "https://www.google.com"
+                              }
+                            },
+                            {
+                              "type": "spacer",
+                              "size": "sm"
                             }
-                          ]
+                          ],
+                          "flex": 0
                         }
-                      ]
                 }));
             })
-
-            
             
         }
     });
