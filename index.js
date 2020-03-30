@@ -1,7 +1,6 @@
 // -----------------------------------------------------------------------------
 // モジュールのインポート
-require('dotenv').config();
-console.log(process.env.KEY);
+require('dotenv').config(); //ローカル用
 
 const server = require("express")();
 const line = require("@line/bot-sdk"); // Messaging APIのSDKをインポート
@@ -47,7 +46,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             var request = require('request');
 
             var options = {
-                url: "https://map.yahooapis.jp/search/local/V1/localSearch?appid=" + process.env.KEY + "&lat=" + event.message.latitude + "&lon=" + event.message.longitude + "&dist=1" + "&query=%E3%83%A9%E3%83%96%E3%83%9B%E3%83%86%E3%83%AB" + "&output=json&sort=geo",
+                // 環境変数からAPI_KEYをセットしています
+                url: "https://map.yahooapis.jp/search/local/V1/localSearch?appid=" + process.env.API_KEY + "&lat=" + event.message.latitude + "&lon=" + event.message.longitude + "&dist=1" + "&query=%E3%83%A9%E3%83%96%E3%83%9B%E3%83%86%E3%83%AB" + "&output=json&sort=geo",
                 method: 'GET',
                 json: true
             }
