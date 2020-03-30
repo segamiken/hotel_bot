@@ -50,19 +50,15 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             }
 
             request(options, function (error, response, body) { 
-                var reply_message=[];
-
-                body.forEach(function() {
-                    reply_message.push(body['Name']);
-                });
+                console.log(body['Name']);
             })
             
 
             // 返信内容
-             events_processed.push(bot.replyMessage(event.replyToken, {
-                type: "text",
-                text: reply_message
-            }));
+            //  events_processed.push(bot.replyMessage(event.replyToken, {
+            //     type: "text",
+            //     text: reply_message
+            // }));
         }
     });
 
