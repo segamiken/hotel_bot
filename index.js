@@ -88,28 +88,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                       "contents": [
                                         {
                                           "type": "text",
-                                          "text": "距離",
-                                          "size": "sm",
-                                          "color": "#aaaaaa",
-                                          "flex": 1
-                                        },
-                                        {
-                                          "type": "text",
-                                          "text": "ホテルまでの距離",
-                                          "wrap": true,
-                                          "color": "#666666",
-                                          "size": "sm",
-                                          "flex": 5
-                                        }
-                                      ],
-                                      "spacing": "sm"
-                                    },
-                                    {
-                                      "type": "box",
-                                      "layout": "baseline",
-                                      "contents": [
-                                        {
-                                          "type": "text",
                                           "text": "住所",
                                           "size": "sm",
                                           "color": "#aaaaaa",
@@ -163,27 +141,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAP"
                                   },
                                   "style": "link",
                                   "height": "sm"
                                 },
                                 {
-                                  "type": "box",
-                                  "layout": "vertical",
-                                  "contents": [
-                                    {
-                                      "type": "button",
-                                      "action": {
-                                        "type": "uri",
-                                        "uri": "http://linecorp.com/",
-                                        "label": "MAP"
-                                      },
-                                      "style": "link",
-                                      "height": "sm"
-                                    }
-                                  ],
-                                  "spacing": "sm"
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
                                 }
                               ],
                               "spacing": "sm"
@@ -211,28 +182,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                       "contents": [
                                         {
                                           "type": "text",
-                                          "text": "距離",
-                                          "size": "sm",
-                                          "color": "#aaaaaa",
-                                          "flex": 1
-                                        },
-                                        {
-                                          "type": "text",
-                                          "text": "ホテルまでの距離",
-                                          "wrap": true,
-                                          "color": "#666666",
-                                          "size": "sm",
-                                          "flex": 5
-                                        }
-                                      ],
-                                      "spacing": "sm"
-                                    },
-                                    {
-                                      "type": "box",
-                                      "layout": "baseline",
-                                      "contents": [
-                                        {
-                                          "type": "text",
                                           "text": "住所",
                                           "size": "sm",
                                           "color": "#aaaaaa",
@@ -286,27 +235,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAP"
                                   },
                                   "style": "link",
                                   "height": "sm"
                                 },
                                 {
-                                  "type": "box",
-                                  "layout": "vertical",
-                                  "contents": [
-                                    {
-                                      "type": "button",
-                                      "action": {
-                                        "type": "uri",
-                                        "uri": "http://linecorp.com/",
-                                        "label": "MAP"
-                                      },
-                                      "style": "link",
-                                      "height": "sm"
-                                    }
-                                  ],
-                                  "spacing": "sm"
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
                                 }
                               ],
                               "spacing": "sm"
@@ -334,28 +276,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                       "contents": [
                                         {
                                           "type": "text",
-                                          "text": "距離",
-                                          "size": "sm",
-                                          "color": "#aaaaaa",
-                                          "flex": 1
-                                        },
-                                        {
-                                          "type": "text",
-                                          "text": "ホテルまでの距離",
-                                          "wrap": true,
-                                          "color": "#666666",
-                                          "size": "sm",
-                                          "flex": 5
-                                        }
-                                      ],
-                                      "spacing": "sm"
-                                    },
-                                    {
-                                      "type": "box",
-                                      "layout": "baseline",
-                                      "contents": [
-                                        {
-                                          "type": "text",
                                           "text": "住所",
                                           "size": "sm",
                                           "color": "#aaaaaa",
@@ -409,27 +329,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAP"
                                   },
                                   "style": "link",
                                   "height": "sm"
                                 },
                                 {
-                                  "type": "box",
-                                  "layout": "vertical",
-                                  "contents": [
-                                    {
-                                      "type": "button",
-                                      "action": {
-                                        "type": "uri",
-                                        "uri": "http://linecorp.com/",
-                                        "label": "MAP"
-                                      },
-                                      "style": "link",
-                                      "height": "sm"
-                                    }
-                                  ],
-                                  "spacing": "sm"
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
                                 }
                               ],
                               "spacing": "sm"
@@ -457,28 +370,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                       "contents": [
                                         {
                                           "type": "text",
-                                          "text": "距離",
-                                          "size": "sm",
-                                          "color": "#aaaaaa",
-                                          "flex": 1
-                                        },
-                                        {
-                                          "type": "text",
-                                          "text": "ホテルまでの距離",
-                                          "wrap": true,
-                                          "color": "#666666",
-                                          "size": "sm",
-                                          "flex": 5
-                                        }
-                                      ],
-                                      "spacing": "sm"
-                                    },
-                                    {
-                                      "type": "box",
-                                      "layout": "baseline",
-                                      "contents": [
-                                        {
-                                          "type": "text",
                                           "text": "住所",
                                           "size": "sm",
                                           "color": "#aaaaaa",
@@ -532,27 +423,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAP"
                                   },
                                   "style": "link",
                                   "height": "sm"
                                 },
                                 {
-                                  "type": "box",
-                                  "layout": "vertical",
-                                  "contents": [
-                                    {
-                                      "type": "button",
-                                      "action": {
-                                        "type": "uri",
-                                        "uri": "http://linecorp.com/",
-                                        "label": "MAP"
-                                      },
-                                      "style": "link",
-                                      "height": "sm"
-                                    }
-                                  ],
-                                  "spacing": "sm"
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
                                 }
                               ],
                               "spacing": "sm"
@@ -580,28 +464,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                       "contents": [
                                         {
                                           "type": "text",
-                                          "text": "距離",
-                                          "size": "sm",
-                                          "color": "#aaaaaa",
-                                          "flex": 1
-                                        },
-                                        {
-                                          "type": "text",
-                                          "text": "ホテルまでの距離",
-                                          "wrap": true,
-                                          "color": "#666666",
-                                          "size": "sm",
-                                          "flex": 5
-                                        }
-                                      ],
-                                      "spacing": "sm"
-                                    },
-                                    {
-                                      "type": "box",
-                                      "layout": "baseline",
-                                      "contents": [
-                                        {
-                                          "type": "text",
                                           "text": "住所",
                                           "size": "sm",
                                           "color": "#aaaaaa",
@@ -655,27 +517,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "action": {
                                     "type": "uri",
                                     "uri": "http://linecorp.com/",
-                                    "label": "WEBSITE"
+                                    "label": "MAP"
                                   },
                                   "style": "link",
                                   "height": "sm"
                                 },
                                 {
-                                  "type": "box",
-                                  "layout": "vertical",
-                                  "contents": [
-                                    {
-                                      "type": "button",
-                                      "action": {
-                                        "type": "uri",
-                                        "uri": "http://linecorp.com/",
-                                        "label": "MAP"
-                                      },
-                                      "style": "link",
-                                      "height": "sm"
-                                    }
-                                  ],
-                                  "spacing": "sm"
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
                                 }
                               ],
                               "spacing": "sm"
@@ -683,7 +538,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                           }
                         ]
                       }
-
                 }));
             })
             
