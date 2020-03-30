@@ -61,106 +61,628 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: 'flex',
-                    altText: '近くのラブホテル',
+                    altText: '近くのホテル',
                     contents:
-                {
-                    "type": "bubble",
-                    "hero": {
-                      "type": "image",
-                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                      "size": "full",
-                      "aspectRatio": "20:13",
-                      "aspectMode": "cover",
-                      "action": {
-                        "type": "uri",
-                        "uri": "http://linecorp.com/"
-                    }
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "text": hotel_name,
-                        "weight": "bold",
-                        "size": "xl"
-                      },
-                      {
-                        "type": "box",
-                        "layout": "vertical",
-                        "margin": "lg",
-                        "spacing": "sm",
+                    {
+                        "type": "carousel",
                         "contents": [
                           {
-                            "type": "box",
-                            "layout": "baseline",
-                            "spacing": "sm",
-                            "contents": [
-                              {
-                                "type": "text",
-                                "text": "Place",
-                                "color": "#aaaaaa",
-                                "size": "sm",
-                                "flex": 1
-                              },
-                              {
-                                "type": "text",
-                                "text": hotel_address,
-                                "wrap": true,
-                                "color": "#666666",
-                                "size": "sm",
-                                "flex": 5
-                              }
-                            ]
+                            "type": "bubble",
+                            "body": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "text",
+                                  "text": "ホテルの名前",
+                                  "size": "xl",
+                                  "weight": "bold"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "距離",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルまでの距離",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "住所",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルの住所",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "電話",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "電話番号",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    }
+                                  ],
+                                  "margin": "lg",
+                                  "spacing": "sm"
+                                }
+                              ]
+                            },
+                            "footer": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "button",
+                                      "action": {
+                                        "type": "uri",
+                                        "uri": "http://linecorp.com/",
+                                        "label": "MAP"
+                                      },
+                                      "style": "link",
+                                      "height": "sm"
+                                    }
+                                  ],
+                                  "spacing": "sm"
+                                }
+                              ],
+                              "spacing": "sm"
+                            }
+                          },
+                          {
+                            "type": "bubble",
+                            "body": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "text",
+                                  "text": "ホテルの名前",
+                                  "size": "xl",
+                                  "weight": "bold"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "距離",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルまでの距離",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "住所",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルの住所",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "電話",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "電話番号",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    }
+                                  ],
+                                  "margin": "lg",
+                                  "spacing": "sm"
+                                }
+                              ]
+                            },
+                            "footer": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "button",
+                                      "action": {
+                                        "type": "uri",
+                                        "uri": "http://linecorp.com/",
+                                        "label": "MAP"
+                                      },
+                                      "style": "link",
+                                      "height": "sm"
+                                    }
+                                  ],
+                                  "spacing": "sm"
+                                }
+                              ],
+                              "spacing": "sm"
+                            }
+                          },
+                          {
+                            "type": "bubble",
+                            "body": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "text",
+                                  "text": "ホテルの名前",
+                                  "size": "xl",
+                                  "weight": "bold"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "距離",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルまでの距離",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "住所",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルの住所",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "電話",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "電話番号",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    }
+                                  ],
+                                  "margin": "lg",
+                                  "spacing": "sm"
+                                }
+                              ]
+                            },
+                            "footer": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "button",
+                                      "action": {
+                                        "type": "uri",
+                                        "uri": "http://linecorp.com/",
+                                        "label": "MAP"
+                                      },
+                                      "style": "link",
+                                      "height": "sm"
+                                    }
+                                  ],
+                                  "spacing": "sm"
+                                }
+                              ],
+                              "spacing": "sm"
+                            }
+                          },
+                          {
+                            "type": "bubble",
+                            "body": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "text",
+                                  "text": "ホテルの名前",
+                                  "size": "xl",
+                                  "weight": "bold"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "距離",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルまでの距離",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "住所",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルの住所",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "電話",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "電話番号",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    }
+                                  ],
+                                  "margin": "lg",
+                                  "spacing": "sm"
+                                }
+                              ]
+                            },
+                            "footer": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "button",
+                                      "action": {
+                                        "type": "uri",
+                                        "uri": "http://linecorp.com/",
+                                        "label": "MAP"
+                                      },
+                                      "style": "link",
+                                      "height": "sm"
+                                    }
+                                  ],
+                                  "spacing": "sm"
+                                }
+                              ],
+                              "spacing": "sm"
+                            }
+                          },
+                          {
+                            "type": "bubble",
+                            "body": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "text",
+                                  "text": "ホテルの名前",
+                                  "size": "xl",
+                                  "weight": "bold"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "距離",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルまでの距離",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "住所",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "ホテルの住所",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    },
+                                    {
+                                      "type": "box",
+                                      "layout": "baseline",
+                                      "contents": [
+                                        {
+                                          "type": "text",
+                                          "text": "電話",
+                                          "size": "sm",
+                                          "color": "#aaaaaa",
+                                          "flex": 1
+                                        },
+                                        {
+                                          "type": "text",
+                                          "text": "電話番号",
+                                          "wrap": true,
+                                          "color": "#666666",
+                                          "size": "sm",
+                                          "flex": 5
+                                        }
+                                      ],
+                                      "spacing": "sm"
+                                    }
+                                  ],
+                                  "margin": "lg",
+                                  "spacing": "sm"
+                                }
+                              ]
+                            },
+                            "footer": {
+                              "type": "box",
+                              "layout": "vertical",
+                              "contents": [
+                                {
+                                  "type": "button",
+                                  "action": {
+                                    "type": "uri",
+                                    "uri": "http://linecorp.com/",
+                                    "label": "WEBSITE"
+                                  },
+                                  "style": "link",
+                                  "height": "sm"
+                                },
+                                {
+                                  "type": "box",
+                                  "layout": "vertical",
+                                  "contents": [
+                                    {
+                                      "type": "button",
+                                      "action": {
+                                        "type": "uri",
+                                        "uri": "http://linecorp.com/",
+                                        "label": "MAP"
+                                      },
+                                      "style": "link",
+                                      "height": "sm"
+                                    }
+                                  ],
+                                  "spacing": "sm"
+                                }
+                              ],
+                              "spacing": "sm"
+                            }
                           }
                         ]
                       }
-                    ]
-                },
-                "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
-                    "contents": [
-                      {
-                        "type": "button",
-                        "style": "link",
-                        "height": "sm",
-                        "action": {
-                          "type": "uri",
-                          "label": "CALL",
-                          "uri": "https://linecorp.com"
-                        }
-                      },
-                      {
-                        "type": "button",
-                        "style": "link",
-                        "height": "sm",
-                        "action": {
-                          "type": "uri",
-                          "label": "WEBSITE",
-                          "uri": "https://www.google.com"
-                        }
-                      },
-                      {
-                        "type": "button",
-                        "style": "link",
-                        "height": "sm",
-                        "action": {
-                          "type": "uri",
-                          "label": "Map",
-                          "uri": "https://www.google.com"
-                        }
-                      },
-                      {
-                        "type": "spacer",
-                        "size": "sm"
-                      }
-                    ],
-                    "flex": 0
-                  }
-                }
 
                 }));
             })
