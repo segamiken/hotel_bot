@@ -51,8 +51,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
             request(options, function (error, response, body) { 
                 console.log(body);
-                console.log(body.count);
-                var hotel_name = body[0].Name;
+                console.log(body.Feature.Name);
+                var hotel_name = body.Feature.Name;
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: "text",
