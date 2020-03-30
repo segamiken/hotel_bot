@@ -63,12 +63,10 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 var hotel_tell = [];
 
                 //ホテルの名前や住所を配列にセットする
-                if (body.ResultInfo.Count >= 5) {
-                    for( var i=0; i<5; i++) {
-                        hotel_name.push( body.Feature[i].Name ? body.Feature[i].Name : '情報なし' );
-                        hotel_address.push( body.Feature[i].Property.Address ? body.Feature[i].Property.Address : '情報なし' );
-                        hotel_tell.push( body.Feature[i].Property.Tel1 ? body.Feature[i].Property.Tel1 : '情報なし' );
-                    }
+                for( var i=0; i<5; i++) {
+                    hotel_name.push( body.Feature[i].Name ? body.Feature[i].Name : '情報なし' );
+                    hotel_address.push( body.Feature[i].Property.Address ? body.Feature[i].Property.Address : '情報なし' );
+                    hotel_tell.push( body.Feature[i].Property.Tel1 ? body.Feature[i].Property.Tel1 : '情報なし' );
                 }
                 
                 // 返信内容
@@ -561,7 +559,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     text: "すみません、その周辺でラブホテルを見つけることができませんでした。"
                 }));
             }
-            })
+            });
             
         }
     });
