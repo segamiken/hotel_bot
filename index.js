@@ -58,11 +58,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             //データが1件以上見つかった場合
             if (body.ResultInfo.Count >= 1) {
 
-                events_processed.push(bot.replyMessage(event.replyToken, {
-                    type: "text",
-                    text: `5km圏内に${body.ResultInfo.Count}圏のホテルが見つかりました。近くの5件を表示します。`
-                }));
-
                 var hotel_name = [];
                 var hotel_address = [];
                 var hotel_tell = [];
@@ -77,7 +72,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: 'flex',
-                    altText: '近くのホテルを送りました！',
+                    altText: `5km圏内に${body.ResultInfo.Count}件のホテルがあります。`,
                     contents:
                     {
                         "type": "carousel",
