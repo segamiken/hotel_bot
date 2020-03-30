@@ -52,25 +52,23 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 json: true
             }
 
+
             request(options, function (error, response, body) { 
+
+            //データが1件以上見つかった場合
+            if (body.ResultInfo.Count >= 1) {
 
                 var hotel_name = [];
                 var hotel_address = [];
+                var hotel_tell = [];
 
+                //ホテルの名前や住所を配列にセットする
                 if (body.ResultInfo.Count >= 5) {
                     for( var i=0; i<5; i++) {
-                        hotel_name.push(body.Feature[i].Name);
-                        hotel_address.push(body.Feature[i].Property.Address);
+                        hotel_name.push( body.Feature[i].Name ? body.Feature[i].Name : '情報なし' );
+                        hotel_address.push( body.Feature[i].Property.Address ? body.Feature[i].Property.Address : '情報なし' );
+                        hotel_tell.push( body.Feature[i].Property.Tel1 ? body.Feature[i].Property.Tel1 : '情報なし' );
                     }
-                }
-                else if ( 1 <= body.ResultInfo.Count < 5) {
-                    for( var i=0; i<body.ResultInfo.Count; i++) {
-                        hotel_name.push(body.Feature[i].Name);
-                        hotel_address.push(body.Feature[i].Property.Address);
-                    }
-                }
-                else {
-                    hotel_name.push("半径5km圏内にホテルはありません。");
                 }
                 
                 // 返信内容
@@ -132,7 +130,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "電話番号",
+                                          "text": hotel_tell[0],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -226,7 +224,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "電話番号",
+                                          "text": hotel_tell[1],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -320,7 +318,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "電話番号",
+                                          "text": hotel_tell[2],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -414,7 +412,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "電話番号",
+                                          "text": hotel_tell[3],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -508,7 +506,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "電話番号",
+                                          "text": hotel_tell[4],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -553,7 +551,16 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                           }
                         ]
                       }
+                    
                 }));
+
+            //データが0件だった場合         
+            } else {
+                events_processed.push(bot.replyMessage(event.replyToken, {
+                    type: "text",
+                    text: "すみません、その周辺でラブホテルを見つけることができませんでした。"
+                }));
+            }
             })
             
         }
