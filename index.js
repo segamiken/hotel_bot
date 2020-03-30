@@ -110,7 +110,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "ホテルの住所",
+                                          "text": hotel_address[0],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -204,7 +204,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "ホテルの住所",
+                                          "text": hotel_address[1],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -277,7 +277,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                               "contents": [
                                 {
                                   "type": "text",
-                                  "text": "ホテルの名前",
+                                  "text": hotel_name[2],
                                   "size": "xl",
                                   "weight": "bold"
                                 },
@@ -298,7 +298,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "ホテルの住所",
+                                          "text": hotel_address[2],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -371,7 +371,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                               "contents": [
                                 {
                                   "type": "text",
-                                  "text": "ホテルの名前",
+                                  "text": hotel_name[3],
                                   "size": "xl",
                                   "weight": "bold"
                                 },
@@ -392,7 +392,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "ホテルの住所",
+                                          "text": hotel_address[3],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
@@ -465,7 +465,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                               "contents": [
                                 {
                                   "type": "text",
-                                  "text": "ホテルの名前",
+                                  "text": hotel_name[4],
                                   "size": "xl",
                                   "weight": "bold"
                                 },
@@ -486,7 +486,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                         },
                                         {
                                           "type": "text",
-                                          "text": "ホテルの住所",
+                                          "text": hotel_address[4],
                                           "wrap": true,
                                           "color": "#666666",
                                           "size": "sm",
