@@ -36,7 +36,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 // replyMessage()で返信し、そのプロミスをevents_processedに追加。
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: "text",
-                    text: "現在地を送ってくだされば私が良いホテルをお探ししますぞ！"
+                    text: "現在地を送ってくだされば私が近くのラブホテルをお探ししますぞ！"
                 }));
         }
         //現在地が送られてきた場合
@@ -53,15 +53,30 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             }
 
             request(options, function (error, response, body) { 
-                console.log(body.Feature[0].Name);
-                var hotel_name = body.Feature[0].Name;
-                var hotel_address = body.Feature[0].Property.Address;
-                var hotel_image = body.Feature[0].LeadImage;
+
+                var hotel_name = [];
+                var hotel_address = [];
+
+                if (body.ResultInfo.Count >= 5) {
+                    for( var i=0; i<5; i++) {
+                        hotel_name.push(body.Feature[i].Name);
+                        hotel_address.push(body.Feature[i].Property.Address);
+                    }
+                }
+                else if ( 1 <= body.ResultInfo.Count < 5) {
+                    for( var i=0; i<body.ResultInfo.Count; i++) {
+                        hotel_name.push(body.Feature[i].Name);
+                        hotel_address.push(body.Feature[i].Property.Address);
+                    }
+                }
+                else {
+                    hotel_name.push("半径5km圏内にホテルはありません。");
+                }
                 
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: 'flex',
-                    altText: '近くのホテル',
+                    altText: '近くのホテルを送りました！',
                     contents:
                     {
                         "type": "carousel",
@@ -74,7 +89,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                               "contents": [
                                 {
                                   "type": "text",
-                                  "text": "ホテルの名前",
+                                  "text": hotel_name[0],
                                   "size": "xl",
                                   "weight": "bold"
                                 },
@@ -168,7 +183,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                               "contents": [
                                 {
                                   "type": "text",
-                                  "text": "ホテルの名前",
+                                  "text": hotel_name[1],
                                   "size": "xl",
                                   "weight": "bold"
                                 },
