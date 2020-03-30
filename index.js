@@ -61,12 +61,19 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 var hotel_name = [];
                 var hotel_address = [];
                 var hotel_tell = [];
+                var hotel_website = [];
 
                 //ホテルの名前や住所を配列にセットする
                 for( var i=0; i<5; i++) {
-                    hotel_name.push( body.Feature[i].Name ? body.Feature[i].Name : "情報なし" );
-                    hotel_address.push( body.Feature[i].Property.Address ? body.Feature[i].Property.Address : "情報なし" );
-                    hotel_tell.push( body.Feature[i].Property.Tel1 ? body.Feature[i].Property.Tel1 : "情報なし" );
+                    name = body.Feature[i].Name ? body.Feature[i].Name : "情報なし";
+                    address = body.Feature[i].Property.Address ? body.Feature[i].Property.Address : "情報なし";
+                    tell = body.Feature[i].Property.Tel1 ? body.Feature[i].Property.Tel1 : "情報なし";
+                    website = body.Feature[i].Coupon.SmartPhoneUrl ? body.Feature[i].Coupon.SmartPhoneUrl : "https://www.google.com";
+
+                    hotel_name.push(name);
+                    hotel_address.push(address);
+                    hotel_tell.push(tell);
+                    hotel_website.push(website);
                 }
                 
                 // 返信内容
