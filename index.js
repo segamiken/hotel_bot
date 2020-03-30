@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
 // モジュールのインポート
-require('dotenv').config();
+const ENV_PATH = path.join(__dirname, '.env');
+require('dotenv').config({ path: ENV_PATH });
 
 const server = require("express")();
 const line = require("@line/bot-sdk"); // Messaging APIのSDKをインポート
