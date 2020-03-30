@@ -57,19 +57,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 var hotel_name = body.Feature[0].Name;
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
-                    "type": "bubble",
-                    "hero": {
-                      "type": "image",
-                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                      "size": "full",
-                      "aspectRatio": "20:13",
-                      "aspectMode": "cover",
-                      "action": {
-                        "type": "uri",
-                        "uri": "http://linecorp.com/"
-                      }
-                    },
-                    "body": {
                       "type": "box",
                       "layout": "vertical",
                       "contents": [
@@ -172,39 +159,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                           ]
                         }
                       ]
-                    },
-                    "footer": {
-                      "type": "box",
-                      "layout": "vertical",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "button",
-                          "style": "link",
-                          "height": "sm",
-                          "action": {
-                            "type": "uri",
-                            "label": "CALL",
-                            "uri": "https://linecorp.com"
-                          }
-                        },
-                        {
-                          "type": "button",
-                          "style": "link",
-                          "height": "sm",
-                          "action": {
-                            "type": "uri",
-                            "label": "WEBSITE",
-                            "uri": "https://linecorp.com"
-                          }
-                        },
-                        {
-                          "type": "spacer",
-                          "size": "sm"
-                        }
-                      ],
-                      "flex": 0
-                    }
                 }));
             })
 
