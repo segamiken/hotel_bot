@@ -50,8 +50,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             }
 
             request(options, function (error, response, body) { 
-                console.log(body);
                 var hotel_obj = JSON.parse(body);
+                console.log(hotel_obj);
+                console.log(hotel_obj.count);
             })
             
 
