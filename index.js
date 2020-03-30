@@ -88,6 +88,28 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                       },
                       {
                         "type": "box",
+                        "layout": "baseline",
+                        "margin": "md",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "評価",
+                            "color": "#aaaaaa",
+                            "size": "sm",
+                            "flex": 1
+                          },
+                          {
+                            "type": "text",
+                            "text": "3.0",
+                            "wrap": true,
+                            "color": "#666666",
+                            "size": "sm",
+                            "flex": 5
+                          }
+                        ]
+                      },
+                      {
+                        "type": "box",
                         "layout": "vertical",
                         "margin": "lg",
                         "spacing": "sm",
