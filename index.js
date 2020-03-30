@@ -64,17 +64,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     altText: '近くのラブホテル',
                     contents:
                 {
-                    "type": "bubble",
-                    "hero": {
-                      "type": "image",
-                      "url": hotel_image,
-                      "size": "full",
-                      "aspectRatio": "20:13",
-                      "aspectMode": "cover",
-                      "action": {
-                        "type": "uri",
-                        "uri": "http://linecorp.com/"
-                    }
+                    "type": "carousel",
                 },
                 "body": {
                     "type": "box",
@@ -160,7 +150,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     ],
                     "flex": 0
                   }
-                }
 
                 }));
             })
