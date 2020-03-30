@@ -267,7 +267,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "type": "button",
                                   "action": {
                                     "type": "uri",
-                                    "uri": "http://linecorp.com/",
+                                    "uri": hotel_map[1],
                                     "label": "MAP"
                                   },
                                   "style": "link",
@@ -361,7 +361,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "type": "button",
                                   "action": {
                                     "type": "uri",
-                                    "uri": "http://linecorp.com/",
+                                    "uri": hotel_map[2],
                                     "label": "MAP"
                                   },
                                   "style": "link",
@@ -455,7 +455,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "type": "button",
                                   "action": {
                                     "type": "uri",
-                                    "uri": "http://linecorp.com/",
+                                    "uri": hotel_map[3],
                                     "label": "MAP"
                                   },
                                   "style": "link",
@@ -549,7 +549,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                                   "type": "button",
                                   "action": {
                                     "type": "uri",
-                                    "uri": "http://linecorp.com/",
+                                    "uri": hotel_map[4],
                                     "label": "MAP"
                                   },
                                   "style": "link",
