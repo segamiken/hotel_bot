@@ -65,10 +65,10 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
                 //ホテルの名前や住所を配列にセットする
                 for( var i=0; i<5; i++) {
-                    name = body.Feature[i].Name ? body.Feature[i].Name : "情報なし";
-                    address = body.Feature[i].Property.Address ? body.Feature[i].Property.Address : "情報なし";
-                    tell = body.Feature[i].Property.Tel1 ? body.Feature[i].Property.Tel1 : "情報なし";
-                    website = body.Feature[i].Coupon.SmartPhoneUrl ? body.Feature[i].Coupon.SmartPhoneUrl : "https://www.google.com";
+                    name = (body.Feature[i].Name == false) ? body.Feature[i].Name : "情報なし";
+                    address = (body.Feature[i].Property.Address == false) ? body.Feature[i].Property.Address : "情報なし";
+                    tell = (body.Feature[i].Property.Tel1 == false) ? body.Feature[i].Property.Tel1 : "情報なし";
+                    website = (body.Feature[i].Coupon.SmartPhoneUrl == false) ? body.Feature[i].Coupon.SmartPhoneUrl : "https://www.google.com";
 
                     hotel_name.push(name);
                     hotel_address.push(address);
