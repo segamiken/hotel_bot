@@ -64,7 +64,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
                 //ホテルの名前や住所を配列にセットする
                 for( var i=0; i<5; i++) {
-                    name = body.Feature[i].Name == null ? "情報なし" : body.Feature[i].Name;
+                    // name = body.Feature[i].Name == null ? "情報なし" : body.Feature[i].Name;
+                    name = body.Feature[i].Name == null ? console.log('aaaaaaaaaa') : console.log('bbbbbb');
                     address = body.Feature[i].Property.Address == null ? "情報なし" : body.Feature[i].Property.Address;
                     tell = body.Feature[i].Property.Tel1 == null ? "情報なし" : body.Feature[i].Property.Tel1;
 
