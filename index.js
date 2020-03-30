@@ -68,7 +68,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     name = body.Feature[i].Name == null ? "情報なし" : body.Feature[i].Name;
                     address = body.Feature[i].Property.Address == null ? "情報なし" : body.Feature[i].Property.Address;
                     tell = body.Feature[i].Property.Tel1 == null ? "情報なし" : body.Feature[i].Property.Tel1;
-                    website = body.Feature[i].Coupon.SmartPhoneUrl == null ? "https://www.google.com" : body.Feature[i].Coupon.SmartPhoneUrl;
 
                     hotel_name.push(name);
                     hotel_address.push(address);
