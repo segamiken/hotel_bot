@@ -51,6 +51,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             }
 
             request(options, function (error, response, body) { 
+                console.log(process.env.API_KEY);
                 console.log(body);
                 console.log(body.Feature[0].Name);
                 var hotel_name = body.Feature[0].Name;
