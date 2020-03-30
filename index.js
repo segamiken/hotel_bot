@@ -58,97 +58,129 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: 'flex',
-            altText: 'おすすめバーガー',
-            contents:
-            {
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
-                    "size": "full",
-                    "aspectRatio": "20:13",
-                    "aspectMode": "cover",
-                    "action": {
+                    altText: '近くのラブホテル',
+                    contents:
+                {
+                    "type": "bubble",
+                    "hero": {
+                      "type": "image",
+                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                      "size": "full",
+                      "aspectRatio": "20:13",
+                      "aspectMode": "cover",
+                      "action": {
                         "type": "uri",
-                        "uri": "https://linecorp.com"
+                        "uri": "http://linecorp.com/"
                     }
                 },
                 "body": {
                     "type": "box",
                     "layout": "vertical",
-                    "spacing": "md",
-                    "action": {
-                        "type": "uri",
-                        "uri": "https://linecorp.com"
-                    },
                     "contents": [
-                        {
+                      {
+                        "type": "text",
+                        "text": "ホテル名が入ります",
+                        "weight": "bold",
+                        "size": "xl"
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "margin": "md",
+                        "contents": [
+                          {
                             "type": "text",
-                            "text": "Brown's Burger",
-                            "size": "xl",
-                            "weight": "bold"
-                        },
-                        {
+                            "text": "評価",
+                            "color": "#aaaaaa",
+                            "size": "sm",
+                            "flex": 1
+                          },
+                          {
+                            "type": "text",
+                            "text": "3.0",
+                            "wrap": true,
+                            "color": "#666666",
+                            "size": "sm",
+                            "flex": 5
+                          }
+                        ]
+                      },
+                      {
+                        "type": "box",
+                        "layout": "vertical",
+                        "margin": "lg",
+                        "spacing": "sm",
+                        "contents": [
+                          {
                             "type": "box",
-                            "layout": "vertical",
+                            "layout": "baseline",
                             "spacing": "sm",
                             "contents": [
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [
-                                        {
-                                            "type": "icon",
-                                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "1500円",
-                                            "weight": "bold",
-                                            "margin": "sm",
-                                            "flex": 0
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "550kcl",
-                                            "size": "sm",
-                                            "align": "end",
-                                            "color": "#aaaaaa"
-                                        }
-                                    ]
-                                }
+                              {
+                                "type": "text",
+                                "text": "Place",
+                                "color": "#aaaaaa",
+                                "size": "sm",
+                                "flex": 1
+                              },
+                              {
+                                "type": "text",
+                                "text": "ホテルの住所が入ります。",
+                                "wrap": true,
+                                "color": "#666666",
+                                "size": "sm",
+                                "flex": 5
+                              }
                             ]
-                        },
-                        {
-                            "type": "text",
-                            "text": "Sauce, Onions, Pickles, Lettuce & Cheese",
-                            "wrap": true,
-                            "color": "#aaaaaa",
-                            "size": "xxs"
-                        }
+                          }
+                        ]
+                      }
                     ]
                 },
                 "footer": {
                     "type": "box",
                     "layout": "vertical",
+                    "spacing": "sm",
                     "contents": [
-                        {
-                            "type": "spacer",
-                            "size": "xxl"
-                        },
-                        {
-                            "type": "button",
-                            "style": "primary",
-                            "color": "#905c44",
-                            "action": {
-                                "type": "uri",
-                                "label": "購入",
-                                "uri": "https://linecorp.com"
-                            }
+                      {
+                        "type": "button",
+                        "style": "link",
+                        "height": "sm",
+                        "action": {
+                          "type": "uri",
+                          "label": "CALL",
+                          "uri": "https://linecorp.com"
                         }
-                    ]
+                      },
+                      {
+                        "type": "button",
+                        "style": "link",
+                        "height": "sm",
+                        "action": {
+                          "type": "uri",
+                          "label": "WEBSITE",
+                          "uri": "https://www.google.com"
+                        }
+                      },
+                      {
+                        "type": "button",
+                        "style": "link",
+                        "height": "sm",
+                        "action": {
+                          "type": "uri",
+                          "label": "Map",
+                          "uri": "https://www.google.com"
+                        }
+                      },
+                      {
+                        "type": "spacer",
+                        "size": "sm"
+                      }
+                    ],
+                    "flex": 0
+                  }
                 }
-            }
+                
                 }));
             })
             
