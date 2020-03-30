@@ -58,20 +58,32 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             //データが1件以上見つかった場合
             if (body.ResultInfo.Count >= 1) {
 
-                var hotel_name = [];
-                var hotel_address = [];
-                var hotel_tell = [];
+                var hotel_name = ["情報なし", "情報なし", "情報なし", "情報なし", "情報なし"];
+                var hotel_address = ["情報なし", "情報なし", "情報なし", "情報なし", "情報なし"];
+                var hotel_tell = ["情報なし", "情報なし", "情報なし", "情報なし", "情報なし"];
 
                 //ホテルの名前や住所を配列にセットする
-                for( var i=0; i<5; i++) {
-                    // name = body.Feature[i].Name == null ? "情報なし" : body.Feature[i].Name;
-                    name = body.Feature[i].Name == null ? console.log('aaaaaaaaaa') : console.log('bbbbbb');
-                    address = body.Feature[i].Property.Address == null ? "情報なし" : body.Feature[i].Property.Address;
-                    tell = body.Feature[i].Property.Tel1 == null ? "情報なし" : body.Feature[i].Property.Tel1;
-
-                    hotel_name.push(name);
-                    hotel_address.push(address);
-                    hotel_tell.push(tell);
+                //情報を5件以上取得できた場合
+                if (body.ResultInfo.Count >= 5) {
+                    for( var i=0; i<5; i++) {
+                        name = body.Feature[i].Name
+                        address = body.Feature[i].Property.Address
+                        tell = body.Feature[i].Property.Tel1
+    
+                        hotel_name.splice(i, 1, name);
+                        hotel_address.splice(i, 1, address);
+                        hotel_tell.splice(i, 1, tell);
+                    }
+                } else {
+                    for( var i=0; i<body.ResultInfo.Count; i++) {
+                        name = body.Feature[i].Name
+                        address = body.Feature[i].Property.Address
+                        tell = body.Feature[i].Property.Tel1
+    
+                        hotel_name.splice(i, 1, name);
+                        hotel_address.splice(i, 1, address);
+                        hotel_tell.splice(i, 1, tell);
+                    }
                 }
                 
                 // 返信内容
