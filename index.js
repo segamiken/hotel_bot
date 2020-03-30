@@ -50,16 +50,15 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             }
 
             request(options, function (error, response, body) { 
-                console.log(response.body.count);
-                var hotel_count = body.count;
+                console.log(body[0]['Name']);
+                var hotel_name = body[0]['Name'];
+                // 返信内容
+                events_processed.push(bot.replyMessage(event.replyToken, {
+                    type: "text",
+                    text: `${hotel_name}が一番近いですよ。`
+                }));
             })
             
-
-            // 返信内容
-             events_processed.push(bot.replyMessage(event.replyToken, {
-                type: "text",
-                text: `${hotel_count}件のホテルが見つかりました。`
-            }));
         }
     });
 
