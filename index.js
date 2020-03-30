@@ -61,7 +61,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                 var hotel_name = [];
                 var hotel_address = [];
                 var hotel_tell = [];
-                var hotel_website = [];
 
                 //ホテルの名前や住所を配列にセットする
                 for( var i=0; i<5; i++) {
@@ -72,7 +71,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
                     hotel_name.push(name);
                     hotel_address.push(address);
                     hotel_tell.push(tell);
-                    hotel_website.push(website);
                 }
                 
                 // 返信内容
