@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
 // モジュールのインポート
 require('dotenv').config();
+console.log(process.env.KEY);
 
 const server = require("express")();
 const line = require("@line/bot-sdk"); // Messaging APIのSDKをインポート
@@ -52,8 +53,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             }
 
             request(options, function (error, response, body) { 
-                console.log(process.env.KEY);
-                console.log(body);
                 console.log(body.Feature[0].Name);
                 var hotel_name = body.Feature[0].Name;
                 // 返信内容
