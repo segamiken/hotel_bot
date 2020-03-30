@@ -50,7 +50,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
             }
 
             request(options, function (error, response, body) { 
-                console.log(body[0]['Name']);
+                console.log(body[0]);
                 var hotel_name = body[0]['Name'];
                 // 返信内容
                 events_processed.push(bot.replyMessage(event.replyToken, {
